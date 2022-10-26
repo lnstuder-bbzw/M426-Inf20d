@@ -52,5 +52,32 @@ namespace Calculator.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void TestDivideNineByThreeIsThree()
+        {
+            // Arrange
+            int a = 9;
+            int b = 3;
+            double expected = 3.0;
+            Calculator calculator = new Calculator();
+
+            // Act
+            double actual = calculator.Divide(a, b);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TestDivideNineByZeroIsError()
+        {
+            // Arrange
+            int a = 5;
+            Calculator calculator = new Calculator();
+
+            Assert.Throws<ArgumentException>(
+                () => calculator.Divide(a, 0));
+        }
     }
 }
